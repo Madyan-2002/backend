@@ -21,7 +21,7 @@ const productSchema = new mongoose.Schema({
     category: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Category', // تأكد أن الاسم يطابق الموديل الآخر تماماً
-        required: [true, 'Category is required'] 
+        required: [true, 'Category is required']
     },
     price: {
         type: Number,

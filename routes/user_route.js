@@ -6,11 +6,11 @@ const route = express.Router();
 route.get(`/`, async (req, res) => {
     const userList = await userModel.find();
     res.send(userList);
-    if(!userList) {
+    if (!userList) {
         res.status(500).json({ success: false });
     }
-    else{
-        res.status(200).json({ success: true, data : userList });
+    else {
+        res.status(200).json({ success: true, data: userList });
     }
 });
 
@@ -103,7 +103,7 @@ route.post(`/`, async (req, res) => {
 //     }
 //     const deleteCount = 2; // عدد العناصر المراد حذفها
 //     users.splice(index, deleteCount);   // or (id - 1 -- index)
- 
+
 //     if(deleteCount > 1) {
 //         res.status(200).json({
 //             message: "Users deleted successfully",
