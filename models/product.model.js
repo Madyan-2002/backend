@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const CategoryModel = require('./category.model');
 
 const productSchema = new mongoose.Schema({
     name: {
@@ -6,7 +7,7 @@ const productSchema = new mongoose.Schema({
         required: true
     },
 
-    descriptios: {
+    description: {
         type: String,
         required: true
     },
@@ -18,9 +19,9 @@ const productSchema = new mongoose.Schema({
         type: String,
     }],
     category: {
-        required: true,
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'category'
+        ref: 'Category', // تأكد أن الاسم يطابق الموديل الآخر تماماً
+        required: [true, 'Category is required'] 
     },
     price: {
         type: Number,
@@ -30,7 +31,7 @@ const productSchema = new mongoose.Schema({
         type: Number,
         min: 0,
         max: 1000,
-        required: true
+        default: 0
     },
     date:
     {
